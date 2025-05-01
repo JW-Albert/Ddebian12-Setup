@@ -1,1 +1,1 @@
-# Debian12-Setup
+# Dietpi-Setup
