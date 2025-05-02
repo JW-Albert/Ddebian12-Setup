@@ -8,7 +8,7 @@
 
 ##### Language/Regional options #####
 # Locale e.g.: "en_GB.UTF-8" / "de_DE.UTF-8" | One entry and UTF-8 ONLY!
-AUTO_SETUP_LOCALE=zh_TW.UTF-8
+AUTO_SETUP_LOCALE=en_US.UTF-8
 
 # Keyboard layout e.g.: "gb" / "us" / "de" / "fr"
 AUTO_SETUP_KEYBOARD_LAYOUT=us
@@ -21,7 +21,7 @@ AUTO_SETUP_TIMEZONE=Asia/Taipei
 # - If both Ethernet and WiFi are enabled, WiFi will take priority and Ethernet will be disabled.
 # - If using WiFi, please edit dietpi-wifi.txt to pre-enter credentials.
 AUTO_SETUP_NET_ETHERNET_ENABLED=1
-AUTO_SETUP_NET_WIFI_ENABLED=0
+AUTO_SETUP_NET_WIFI_ENABLED=1
 
 # WiFi country code: 2 capital letter value (e.g. GB US DE JP): https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 # - NB: This choice may be overridden if the WiFi access point sends a country code.
