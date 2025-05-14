@@ -29,7 +29,7 @@ AUTO_SETUP_NET_WIFI_COUNTRY_CODE=JP
 
 # Enter your static network details below, if applicable.
 AUTO_SETUP_NET_USESTATIC=0
-AUTO_SETUP_NET_STATIC_IP=192.168.50.20
+AUTO_SETUP_NET_STATIC_IP=192.168.50.30
 AUTO_SETUP_NET_STATIC_MASK=255.255.255.0
 AUTO_SETUP_NET_STATIC_GATEWAY=192.168.50.254
 AUTO_SETUP_NET_STATIC_DNS=192.168.50.1
@@ -45,7 +45,7 @@ AUTO_SETUP_NET_HOSTNAME=DietPi
 AUTO_SETUP_NET_ETH_FORCE_SPEED=0
 
 # Delay service starts at boot until network is established: 0=disabled | 1=enabled
-AUTO_SETUP_BOOT_WAIT_FOR_NETWORK=0
+AUTO_SETUP_BOOT_WAIT_FOR_NETWORK=1
 
 ##### Misc options #####
 # Swap space size to generate: 0 => disable | 1 => auto | 2 and up => size in MiB
@@ -63,7 +63,7 @@ AUTO_UNMASK_LOGIND=0
 # - Add as many APT package names as you wish, separated by space.
 # - They will be installed after dietpi-software options and before the script defined via AUTO_SETUP_CUSTOM_SCRIPT_EXEC (see below) is executed.
 # - E.g. the following (without the leading "#") will install the APT packages iotop, iptables and xz-utils:
-AUTO_SETUP_APT_INSTALLS=net-tools python3 python3-pip python3-venv 
+AUTO_SETUP_APT_INSTALLS=net-tools python3 python3-pip python3-venv git curl traceroute dnsutils sudo
 
 # Custom Script (pre-networking and pre-DietPi install)
 # - Allows you to automatically execute a custom script before network is up on first boot.
@@ -136,7 +136,7 @@ AUTO_SETUP_GLOBAL_PASSWORD=Albertwang@0801
 # - Add as many software IDs as you wish, separated by space.
 # - DietPi will automatically install all dependencies, like ALSA/X11 for desktops etc.
 # - E.g. the following (without the leading "#") will install the LXDE desktop, the TigerVNC server and the Kodi media centre automatically on first boot:
-AUTO_SETUP_INSTALL_SOFTWARE_ID=17 69 72
+#AUTO_SETUP_INSTALL_SOFTWARE_ID=
 
 #------------------------------------------------------------------------------------------------------
 ##### Misc DietPi program settings #####
@@ -179,25 +179,25 @@ CONFIG_GPU_DRIVER=none
 
 # System-wide proxy settings
 # - Do not modify, you must use dietpi-config > "Network Options: Adapters" to apply
-CONFIG_PROXY_ADDRESS=MyProxyServer.com
-CONFIG_PROXY_PORT=8080
+CONFIG_PROXY_ADDRESS=
+CONFIG_PROXY_PORT=
 CONFIG_PROXY_USERNAME=
 CONFIG_PROXY_PASSWORD=
 
 # Connection timeout in seconds for G_CHECK_NET and G_CHECK_URL. Increase if you have a "flaky" connection or slow DNS resolver.
 # - Set this to "0" to allow unlimited time, however this is not recommended to avoid unlimited hanging background scripts, e.g. daily DietPi update check.
 # - A negative or non-integer value will result in the default of 10 seconds.
-CONFIG_G_CHECK_URL_TIMEOUT=10
+CONFIG_G_CHECK_URL_TIMEOUT=20
 # Connection attempts with above timeout each, before G_CHECK_NET and G_CHECK_URL give up and prompt an error.
 # - Any value below "1" or a non-integer value will result in the default of 2 attempts.
-CONFIG_G_CHECK_URL_ATTEMPTS=2
+CONFIG_G_CHECK_URL_ATTEMPTS=3
 # General connection and DNS testing
 # - IPv4 address to ping when checking network connectivity. Default: 9.9.9.9 (Quad9 DNS IP)
-CONFIG_CHECK_CONNECTION_IP=1.1.1.1
+CONFIG_CHECK_CONNECTION_IP=8.8.8.8
 # - IPv6 address to ping when checking network connectivity. Default: 2620:fe::fe (Quad9 DNS IP)
 CONFIG_CHECK_CONNECTION_IPV6=2620:fe::fe
 # - Domain to resolve when checking DNS resolver. Default: dns9.quad9.net (Quad9 DNS domain)
-CONFIG_CHECK_DNS_DOMAIN=dns9.quad9.net
+CONFIG_CHECK_DNS_DOMAIN=google.com
 
 # Daily check for DietPi updates: 0=disable | 1=enable
 # - Checks are done by downloading a file of only 7 bytes.
@@ -208,7 +208,7 @@ CONFIG_CHECK_DIETPI_UPDATES=1
 CONFIG_CHECK_APT_UPDATES=1
 
 # Network time sync: 0=disabled | 1=boot only | 2=boot + daily | 3=boot + hourly | 4=Daemon + Drift
-CONFIG_NTP_MODE=2
+CONFIG_NTP_MODE=3
 
 # Serial Console: Set to 0 if you do not require serial console.
 CONFIG_SERIAL_CONSOLE_ENABLE=1
@@ -225,9 +225,9 @@ CONFIG_ENABLE_IPV6=0
 
 # APT mirrors which are applied to /etc/apt/sources.list | Values here will also be applied during 1st run setup
 # - Raspbian: https://www.raspbian.org/RaspbianMirrors
-CONFIG_APT_RASPBIAN_MIRROR=http://free.nchc.org.tw/raspbian
+CONFIG_APT_RASPBIAN_MIRROR=https://free.nchc.org.tw/raspbian/raspbian/
 # - Debian: https://www.debian.org/mirror/official#list
-CONFIG_APT_DEBIAN_MIRROR=https://free.nchc.org.tw/debian/
+CONFIG_APT_DEBIAN_MIRROR=https://opensource.nchc.org.tw/debian/
 
 # NTP server(s) applied to /etc/systemd/timesyncd.conf
 # - "default": Use the NTP server(s) provided via DHCP, else the debian.pool.ntp.org NTP pool.
@@ -270,7 +270,7 @@ SOFTWARE_WIFI_HOTSPOT_CHANNEL=3
 # - 802.11n/WiFi 4, 802.11ac/WiFi 5, 802.11ax/WiFi 6 and 5 GHz support: Note that your WiFi adapter must support it!
 # - WiFi 5 support implicitly switches to 5 GHz frequency.
 # - 5 GHz frequency implicitly enables WiFi 4 support if neither WiFi 4, 5 nor 6 is enabled.
-SOFTWARE_WIFI_HOTSPOT_WIFI4=0
+SOFTWARE_WIFI_HOTSPOT_WIFI4=1
 SOFTWARE_WIFI_HOTSPOT_WIFI5=0
 # - WiFi 6 is only supported from Debian Bookworm on!
 SOFTWARE_WIFI_HOTSPOT_WIFI6=0
