@@ -1,17 +1,17 @@
 #!/bin/bash
-# 本腳本需以 root 身份執行！
+# This script needs to be executed as root!
 
-echo "[INFO] 更新 apt"
+echo "[INFO] Updating apt"
 apt update -y && apt upgrade -y
 
-echo "[INFO] 安裝 sudo"
+echo "[INFO] Installing sudo"
 apt install sudo -y
 
-echo "[INFO] 建立 albert 帳戶"
+echo "[INFO] Creating albert account"
 useradd -m -s /bin/bash albert
 
-echo "[INFO] 給予 albert 權限"
+echo "[INFO] Granting albert permissions"
 usermod -aG sudo albert
 
-echo "[INFO] 設定 albert 帳戶密碼"
+echo "[INFO] Setting albert account password"
 passwd albert
